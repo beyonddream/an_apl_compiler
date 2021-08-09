@@ -1,0 +1,86 @@
+.SH
+APL Symbols
+.PP
+The following char shows the dot-two-character equivalences for various APL
+symbols accepted by the APL compiler.
+.TS
+center;
+l l.
+(	left parenthesis
+)	right parenthesis
+[	left brace
+]	right brace
+;	semicolon
+,	comma
+:	colon
+<	less than indication          
+<=	less than or equal
+=	equal
+!=	not equal
+^=	not equal
+>=	greater than or equal
+>	greater than
+|	absolute value
+.al	alpha (direct definition)
+&	and
+<-	assignment
+_	assignment (underscore)
+.bx	box
+.ce	ceiling
+.lo	circle
+.dc	decode
+.dl	del
+%	divide
+.da	drop
+.ec	encode
+.ep	epsilon
+*	exponentation
+!	factorial
+.fl	floor
+.fm	format
+.go	goto
+->	goto
+.gu	grade up
+.gd	grade down
+.io	iota
+.lg	logrithm
+.md	matrix divide (not currently supported)
+-	minus
+.nd	nand
+.no	nor
+~	not
+.om	omega (for direct definition)
+.or	or
+.so	outer product
++	plus
+.qq	quote quad
+.rv	reverse
+.cr	reverse along first axis
+.ro	rho
+?	roll
+/	reduction
+.bs	reduction along first axis
+\\	scan
+.fs	scan	along first axis
+.ua	take
+#	times
+.tr	transpose
+.bxpp	box pp (printing precision)
+.TE
+.SH
+Declarations
+.PP
+The following attribute classes are recognized:
+.TS
+center;
+l l.
+global	global variable
+fun	function
+scalar	scalar
+vector	vector
+var	variable of unknown type
+char	character variable
+bit	bit variable
+int	integer variable
+real	real variable
+.TE

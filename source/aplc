@@ -1,0 +1,38 @@
+:
+:	shell script for apl compiler
+:
+
+P=/users/budd/Distrib/sources/aplc/source
+cflag=
+iflag=
+clist=
+tpass=intra
+
+for name do
+	case ${name} in
+
+		-c) cflag=-c ;;
+
+		-i*) iflag=${name} ;;
+
+		-t)  tpass=trs ;;
+
+		-T)  clist=${clist}" -DTRACE" ;;
+
+		*.apl) base=`basename ${name} .apl` 
+			echo ${name}: ;
+			$P/parse <${name} | 
+				$P/${tpass} ${iflag} | 
+				$P/access | 
+				$P/resource | 
+				$P/gen -n ${iflag} | cb >${base}.c ;
+			clist=${clist}" "${base}.c ;;
+
+		*) clist=${clist}" "${name}
+	esac
+done
+
+if test -z "${cflag}"
+	then echo "cc " ${clist} ;
+	cc ${clist} $P/run.o -lm ;
+fi

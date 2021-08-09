@@ -1,0 +1,43 @@
+.ce
+\fBInstallation Instructions for aplc, the APL compiler\fP
+.PP
+The output of the apl compiler is a C program, which includes a file
+defining the run time system.  The first step in installation depends upon
+whether the compiler is intended for a single user, or for use on a system
+wide basis.
+.SH
+Single User Use
+.PP
+Make sure line 44 of the file dcls.c issues an include in double quote
+form, instead of using angle braces.
+Note that the file aplc.h must be in the same directory as any apl program
+that is compiled.
+.SH
+System Wide Use
+.PP
+Move the file aplc.h to where include files live (usually /usr/include).
+Make sure line 44 of the file dcls.c issues an include in angle brace
+form, instead of using double quotes.
+.SH
+Compiling the sources
+.PP
+Type \fImake all\fP in the sources directory.  This should take about half
+an hour of compilation time.  You might want to redirect the output and go
+have lunch.
+.SH
+Changing the shell script
+.PP
+This assumes (naturally) that everything compiled ok.
+There is one hard path coded in the shell script called \fIaplc\fP.
+Change this to point to the binaries created in the last step, and move the
+shell script to wherever appropriate.
+.SH
+A Test Case
+.PP
+There is one program, ulam.apl, included in the source directory.
+Try typing \fIaplc ulam.apl\fP.  If this succeeds without complaint, type
+\fIa.out\fP.  It should prompt for a number, try 10.  It will result in a
+sprial of numbers of the given size, then replace the primes by stars and
+the nonprimes by spaces.  The resulting pattern exhibits some interesting
+lines.
+
